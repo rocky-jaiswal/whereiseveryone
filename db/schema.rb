@@ -11,6 +11,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20130526075637) do
+
+  create_table "statuses", :force => true do |t|
+    t.string   "title",      :null => false
+    t.string   "comment"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "statuses", ["title"], :name => "index_statuses_on_title"
+
+  create_table "user_statuses", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "status_id"
+    t.string   "comment"
+    t.date     "status_on"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_statuses", ["status_on"], :name => "index_user_statuses_on_status_on"
+  add_index "user_statuses", ["user_id"], :name => "index_user_statuses_on_user_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "name",       :null => false
+    t.string   "fmno"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "users", ["name"], :name => "index_users_on_name"
 
 end

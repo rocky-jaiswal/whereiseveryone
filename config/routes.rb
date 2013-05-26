@@ -1,3 +1,3 @@
 Whereiseveryone::Application.routes.draw do
-  root :to => "home#index"
+  get "/status(/:datex)" => "status#get_status"
 end

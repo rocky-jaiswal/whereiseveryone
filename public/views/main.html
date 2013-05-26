@@ -1,0 +1,41 @@
+<div class="main">
+  <div class="row">
+    <div class="span8 offset4">
+      <div class="title">
+        <h1>Where is everyone?</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span8 offset4">
+      <div class="search">
+        <input class="big" id="appendedInputButtons" type="text" placeholder="Search By Name" ng-model="query">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span8 offset4">
+      <span class="prev"><a href="#/prev" data-ng-click="prev()">&lsaquo;</a></span>
+      <span class="date" my-date="d - MMM - yyyy"></span>
+      <span class="next"><a href="#/next" data-ng-click="next()">&rsaquo;</a></span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span10 offset1">
+      <table class="table table-bordered table-striped mytable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="status in statuses | filter:query">
+            <td>{{status.user_name}}</td>
+            <td>{{status.status}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
