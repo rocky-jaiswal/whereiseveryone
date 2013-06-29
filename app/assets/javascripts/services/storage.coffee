@@ -12,5 +12,5 @@ class StorageService
     localStorage.clear()
 
 
-angular.module "whereApp.service", [], ($provide) ->
+angular.module "whereApp.storageService", [], ($provide) ->
   $provide.factory "storageService", -> new StorageService()

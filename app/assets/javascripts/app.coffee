@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module("whereApp", ["whereApp.service"]).config ($routeProvider) ->
+angular.module("whereApp", ["whereApp.storageService", "whereApp.webService"]).config ($routeProvider) ->
   $routeProvider
-  .when("/", {templateUrl: "/views/main.html", controller: "NavigationCtrl"})
+  .when("/", {templateUrl: "assets/main.html", controller: "NavigationCtrl"})
   .otherwise({redirectTo: "/"})

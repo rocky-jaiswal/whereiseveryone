@@ -2,10 +2,12 @@
 
 class NavigationCtrl
 
-  constructor: (@$scope, @$location, @$routeParams, @$http, @storageService) ->
+  constructor: (@$scope, @$location, @$routeParams, @$http, @storageService, @webService) ->
     @$scope.prev = @prev
     @$scope.next = @next
-    @$http.get('/status').success (data) =>
+    
+    promise = @webService.getStatus()
+    promise.success (data) =>
       @$scope.statuses  = data
 
   prev: =>
@@ -14,5 +16,5 @@ class NavigationCtrl
   next: =>
     console.log @$scope.datex
 
-NavigationCtrl.$inject = ["$scope", "$location", "$routeParams", "$http", "storageService"]
+NavigationCtrl.$inject = ["$scope", "$location", "$routeParams", "$http", "storageService", "webService"]
 angular.module("whereApp").controller "NavigationCtrl", NavigationCtrl

@@ -1,5 +1,5 @@
 class Status < ActiveRecord::Base
-  attr_accessible :comment, :title
+  attr_accessible :title, :comment 
 
   validates_presence_of :title
 
