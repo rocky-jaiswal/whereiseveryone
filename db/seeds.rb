@@ -8,7 +8,7 @@
 # Environment variables (ENV['...']) are set in the file config/application.yml.
 # See http://railsapps.github.io/rails-environment-variables.html
 
-users = User.create([{ name: 'Rocky' }, { name: 'Aishwarya' }, { name: 'Abhishek' }, { name: 'Akshat' }, { name: 'Shadab' }])
+users = User.create([{ name: 'Rocky', email: 'rocky@example.com' }, { name: 'Aishwarya', email: 'aish@example.com' }, { name: 'Abhishek', email: 'abhi@example.com' }, { name: 'Akshat', email: 'aks@example.com' }, { name: 'Shadab', email: 'shadab@example.com' }])
 status = Status.create([{title: 'Working from home'}, {title: 'On PTO'}])
 
 us1 = UserStatus.create({user_id: users.first.id, status_id: status.first.id, comment: 'In Greater Noida', status_on: Date.today})

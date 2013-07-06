@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130526075637) do
+ActiveRecord::Schema.define(:version => 20130706123333) do
 
   create_table "statuses", :force => true do |t|
     t.string   "title",      :null => false
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20130526075637) do
     t.string   "fmno"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "email",      :null => false
   end
 
   add_index "users", ["name"], :name => "index_users_on_name"

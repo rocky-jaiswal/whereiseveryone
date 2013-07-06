@@ -1,9 +1,9 @@
 class StatusController < ApplicationController
   
   def get_status
-    status_finder = StatusFinder.new
-    day = params[:datex] || Date.today
-    user_statuses = status_finder.get_user_statuses(day)
+    date = params[:datex]
+    status_finder = StatusFinder.new(date)
+    user_statuses = status_finder.get_statuses()
     render :json => user_statuses.to_json
   end
 

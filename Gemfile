@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'mysql2'
+gem 'pg'
 gem 'sqlite3'
 gem 'devise'
 gem 'devise_ldap_authenticatable'
@@ -17,7 +17,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'thin', :group => :development
 gem 'quiet_assets', '>= 1.0.2', :group => :development
 
 gem 'rspec-rails', '>= 2.12.2', :group => [:development, :test]

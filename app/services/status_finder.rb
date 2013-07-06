@@ -1,22 +1,27 @@
-class StatusFinder 
+class StatusFinder
 
-  def get_user_statuses(day)
+  def initialize(date)
+    @date = date
+  end
+
+  def get_statuses
     user_statuses = []
+    @statuses = UserStatus.when(@date)
     User.all.each do |user|
-      user_statuses << get_status_for_user(user, day)
+      user_statuses.push(get_status_for_user(user))
     end
     user_statuses.sort {|a, b| a[:user_name] <=> b[:user_name]}
   end
 
-  def get_status_for_user(user, day)
-    statuses = user.user_statuses.when(day)
-    if statuses.nil? || statuses.blank?
+  def get_status_for_user(user)
+    user_status = @statuses.select{|updated_status| updated_status.user_id == user.id}
+    if user_status.empty?
       status_today = UserStatus.new
       status_today.status = Status.new(:title => 'In Gurgaon Office')
     else
-      status_today = statuses.first
+      status_today = user_status.first
     end
-    {:user_id => user.id, :user_name => user.name, :status => status_today.status.title, :comments => status_today.comment, :day => day}
+    {:user_id => user.id, :user_name => user.name, :status => status_today.status.title, :comments => status_today.comment, :date => @date}
   end
 
 end

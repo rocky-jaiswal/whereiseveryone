@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :fmno, :name
+  attr_accessible :fmno, :name, :email
 
   validates_presence_of :name
 
