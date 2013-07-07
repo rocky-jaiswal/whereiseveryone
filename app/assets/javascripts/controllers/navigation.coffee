@@ -3,6 +3,7 @@
 class NavigationCtrl
 
   constructor: (@$scope, @$location, @$routeParams, @$http, @storageService, @webService) ->
+    @$scope.isLoading = false
     @$scope.prev = @prev
     @$scope.next = @next
 
@@ -18,9 +19,11 @@ class NavigationCtrl
     @getData()
 
   getData: () =>
+    @$scope.isLoading = true
     promise = @webService.getStatus(@$scope.datex.format("YYYY-MM-DD"))
     promise.success (data) =>
       @$scope.statuses  = data
+      @$scope.isLoading = false
 
 NavigationCtrl.$inject = ["$scope", "$location", "$routeParams", "$http", "storageService", "webService"]
 angular.module("whereApp").controller "NavigationCtrl", NavigationCtrl

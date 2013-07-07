@@ -9,20 +9,25 @@
   <div class="row">
     <div class="span8 offset4">
       <div class="search">
-        <input class="big" id="appendedInputButtons" type="text" placeholder="Search By Name" ng-model="query">
+        <input class="big" id="appendedInputButtons" type="text" placeholder="Search" ng-model="query">
       </div>
     </div>
   </div>
   <div class="row">
     <div class="span8 offset4">
-      <span class="prev"><a href="#/" data-ng-click="prev()">&lsaquo;</a></span>
+      <span class="prev"><a href="#/" data-ng-click="prev()" data-ng-hide="isLoading">&lsaquo;</a></span>
       <span class="date">{{datex.format("ddd DD MMMM YYYY")}}</span>
-      <span class="next"><a href="#/" data-ng-click="next()">&rsaquo;</a></span>
+      <span class="next"><a href="#/" data-ng-click="next()" data-ng-hide="isLoading">&rsaquo;</a></span>
+    </div>
+  </div>
+  <div class="row" data-ng-show="isLoading">
+    <div class="span12">
+      <div class="ironman-scan"></div>
     </div>
   </div>
   <div class="row">
     <div class="span10 offset1">
-      <table class="table table-bordered table-striped mytable">
+      <table class="table table-bordered table-striped mytable" data-ng-hide="isLoading">
         <thead>
           <tr>
             <th>Name</th>
