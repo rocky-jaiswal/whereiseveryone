@@ -1,0 +1,27 @@
+<div class="login">
+  <div class="row">
+    <div class="span8 offset4">
+      <div class="title">
+        <h1>Login</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span8 offset4">
+      <h4>Please use ADS credentials</h4>
+      <form name="loginForm" ng-submit="login(user)" ng-controller="LoginCtrl">
+        <table>
+          <tr>
+            <td><input type="text" ng-model="user.name" placeholder="User Name"></td>
+          </tr>
+          <tr>
+            <td><input type="password" ng-model="user.password" placeholder="Password"></td>
+          </tr>
+          <tr>
+            <td><input type="submit" value="Login" class="btn btn-large" /></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>

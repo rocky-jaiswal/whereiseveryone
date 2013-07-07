@@ -1,0 +1,40 @@
+@import "_vars";
+
+.title {
+  margin: 8px;
+}
+
+.search {
+  margin: 10px 70px;
+}
+
+input.big {
+  height: 50px;
+  width: 227px;
+  line-height: 30px;
+  font-size: 30px;
+  border: 1px solid darken($background-color, 10%);
+}
+
+.date {
+  font-size: 35px;
+  margin: 10px 40px;
+}
+
+.prev, .next {
+  font-size: 40px;
+  a {
+    color: $cloudy;
+  }
+}
+
+table.mytable {
+  margin-top: 25px;
+  tbody tr:nth-child(odd) {
+    color: $background-color;
+  }
+  tbody tr:nth-child(odd) {
+    background-color: $cloudy;
+  }
+}
+
