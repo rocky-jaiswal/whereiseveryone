@@ -17,7 +17,7 @@ class StatusFinder
     user_status = @statuses.select{|updated_status| updated_status.user_id == user.id}
     if user_status.empty?
       status_today = UserStatus.new
-      status_today.status = Status.new(:title => 'In Gurgaon Office')
+      status_today.status = Status.new(:title => 'In Office')
     else
       status_today = user_status.first
     end
